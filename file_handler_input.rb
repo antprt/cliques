@@ -1,10 +1,9 @@
 class FileHandlerInput
   INPUT_ROUTE = './in/in.txt'
-  OUTPUT_ROUTE = './in/in.txt'
 
   def initialize
     unless File.exist?(INPUT_ROUTE)
-      raise "No existe el fichero 'in.txt' en la carpeta 'in' que debe estar en el mismo directorio que el ejecutable '.rb'"
+      raise "No existe el fichero esperado en la carpeta de entrada"
     end
   end
 
@@ -18,7 +17,7 @@ class FileHandlerInput
       end
       return file_content
     rescue
-      raise "Se produjo un error mientras se intentaba leer el fichero 'in.txt'"
+      raise "Se produjo un error mientras se intentaba leer el fichero"
     end
   end
 end
