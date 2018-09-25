@@ -2,7 +2,7 @@ class FileHandlerInput
   INPUT_ROUTE = './in/in.txt'
 
   def initialize
-    unless File.exist?(INPUT_ROUTE)
+    unless File.exists?(INPUT_ROUTE)
       raise "No existe el fichero esperado en la carpeta de entrada"
     end
   end
