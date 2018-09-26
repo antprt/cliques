@@ -1,5 +1,5 @@
 class FileHandlerInput
-  INPUT_ROUTE = './in/in.txt'
+  INPUT_ROUTE = '../in/in.txt'
 
   def initialize
     unless File.exists?(INPUT_ROUTE)
