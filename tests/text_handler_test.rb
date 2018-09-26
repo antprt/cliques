@@ -1,4 +1,4 @@
-require_relative 'text_handler'
+require_relative File.expand_path("../lib/text_handler.rb")
 require 'test/unit'
 
 class TextHandlerTest < Test::Unit::TestCase

@@ -1,4 +1,4 @@
-require_relative 'user'
+require_relative File.expand_path("../lib/user.rb")
 require 'test/unit'
 
 class UserTest < Test::Unit::TestCase

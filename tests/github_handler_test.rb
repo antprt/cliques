@@ -1,4 +1,4 @@
-require_relative 'github_handler'
+require_relative File.expand_path("../lib/github_handler.rb")
 require 'test/unit'
 
 #Note: It can be interesting make this test independent of the network.

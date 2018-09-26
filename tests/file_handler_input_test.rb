@@ -1,4 +1,4 @@
-require_relative 'file_handler_input'
+require_relative File.expand_path("../lib/file_handler_input.rb")
 require 'test/unit'
 
 class FileHandlerInputTest < Test::Unit::TestCase

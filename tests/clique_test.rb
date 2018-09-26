@@ -1,5 +1,5 @@
-require_relative 'user'
-require_relative 'clique'
+require_relative File.expand_path("../lib/user.rb")
+require_relative File.expand_path("../lib/clique.rb")
 require 'test/unit'
 
 class CliqueTest < Test::Unit::TestCase

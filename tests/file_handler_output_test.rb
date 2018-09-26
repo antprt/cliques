@@ -1,11 +1,9 @@
-require_relative 'file_handler_output'
-require_relative 'user'
+require_relative File.expand_path("../lib/file_handler_output.rb")
+require_relative File.expand_path("../lib/user.rb")
 require 'test/unit'
 
 class FileHandlerOutputTest < Test::Unit::TestCase
   def test_file_initialize
-    delete_file_out
-    delete_dir_out
     FileHandlerOutput.new
     assert_true File.exists?('./out/out.txt')
     delete_file_out
@@ -20,8 +18,6 @@ class FileHandlerOutputTest < Test::Unit::TestCase
   end
 
   def test_write_file_success
-    delete_file_out
-    delete_dir_out
     file_handler_output = FileHandlerOutput.new
     file_handler_output.write_file([[User.new("antonio"), User.new("sergio")], [User.new("rubén")]])
     content = ""

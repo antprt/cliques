@@ -1,4 +1,4 @@
-require_relative 'twitter_handler'
+require_relative File.expand_path("../lib/twitter_handler.rb")
 require 'test/unit'
 
 #Note: It can be interesting make this test independent of the network.
@@ -9,7 +9,8 @@ class TwitterHandlerTest < Test::Unit::TestCase
   end
 
   def test_get_user_id_success
-    assert_equal Fixnum, TwitterHandler.get_user_id('policia').class
+    id = TwitterHandler.get_user_id('policia')
+    assert_equal Fixnum, id.class
   end
   
   def test_get_twitter_friends_ids_fail

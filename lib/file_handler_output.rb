@@ -2,10 +2,12 @@ class FileHandlerOutput
   OUTPUT_ROUTE = './out/out.txt'
 
   def initialize
-    unless File.exists?(OUTPUT_ROUTE)
-      Dir.mkdir('out')
-      File.write('./out/out.txt', '')
+    if File.exists?(OUTPUT_ROUTE)
+      File.delete('./out/out.txt')
+      Dir.delete('out')
     end
+    Dir.mkdir('out') unless Dir.exists?('out')
+    File.write('./out/out.txt', '') unless File.exists?('./out/out.txt')
   end
 
   def write_file(users_cliques)
