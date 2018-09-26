@@ -1,5 +1,5 @@
 class FileHandlerOutput
-  OUTPUT_ROUTE = './out/out.txt'
+  OUTPUT_ROUTE = '../out/out.txt'
 
   def initialize
     if File.exists?(OUTPUT_ROUTE)
