@@ -17,7 +17,7 @@ class TwitterHandler
     begin
       return @@client.user(username).id
     rescue Exception => e
-      raise "No se puede obtener id de nombre de usuario: #{username}. Message: #{e.message}"
+      raise "Unable to get user name twitter_id: #{username}. Message: #{e.message}"
     end
   end
 
@@ -25,7 +25,7 @@ class TwitterHandler
     begin
       return @@client.friends(username).to_a.map(&:id)
     rescue Exception => e
-      raise "No se pueden obtener ids de amigos de usuario: #{username}. Message: #{e.message}"
+      raise "You can not get ids from friends on user's Twitter: #{username}. Message: #{e.message}"
     end
   end
 end
