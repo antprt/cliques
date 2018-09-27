@@ -5,7 +5,7 @@ require 'test/unit'
 class FileHandlerOutputTest < Test::Unit::TestCase
   def test_file_initialize
     FileHandlerOutput.new
-    assert_true File.exists?('./out/out.txt')
+    assert_true File.exists?('../out/out.txt')
     delete_file_out
     delete_dir_out
   end
@@ -21,7 +21,7 @@ class FileHandlerOutputTest < Test::Unit::TestCase
     file_handler_output = FileHandlerOutput.new
     file_handler_output.write_file([[User.new("antonio"), User.new("sergio")], [User.new("rubén")]])
     content = ""
-      File.open('./out/out.txt', 'r') do |file|
+      File.open('../out/out.txt', 'r') do |file|
         while line = file.gets
           content += line
         end
@@ -31,10 +31,10 @@ class FileHandlerOutputTest < Test::Unit::TestCase
 
   private
   def delete_dir_out
-    Dir.delete('out') if Dir.exists?('out')
+    Dir.delete('../out') if Dir.exists?('../out')
   end
 
   def delete_file_out
-    File.delete('./out/out.txt') if File.exists?('./out/out.txt')
+    File.delete('../out/out.txt') if File.exists?('../out/out.txt')
   end
 end

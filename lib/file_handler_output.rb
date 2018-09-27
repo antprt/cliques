@@ -3,16 +3,16 @@ class FileHandlerOutput
 
   def initialize
     if File.exists?(OUTPUT_ROUTE)
-      File.delete('./out/out.txt')
-      Dir.delete('out')
+      File.delete(OUTPUT_ROUTE)
+      Dir.delete('../out')
     end
-    Dir.mkdir('out') unless Dir.exists?('out')
-    File.write('./out/out.txt', '') unless File.exists?('./out/out.txt')
+    Dir.mkdir('../out') unless Dir.exists?('../out')
+    File.write(OUTPUT_ROUTE, '') unless File.exists?(OUTPUT_ROUTE)
   end
 
   def write_file(users_cliques)
     begin
-      f = File.open('./out/out.txt', 'w')
+      f = File.open(OUTPUT_ROUTE, 'w')
       users_cliques.each do |array|
         array.each do |user|
           f.write("#{user.name} ")
