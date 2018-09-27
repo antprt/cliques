@@ -8,6 +8,7 @@ class User
     @full_connected_users = []
   end
 
+  #Return one user object if the twitter_id exists in the users array passed to function
   def self.find_by_twitter_id(twitter_id, users)
     user_find = nil
     users.each do |user|
@@ -19,6 +20,7 @@ class User
     return user_find
   end
 
+  #Return array of users objects if the users in the array passed to the function share some organization in github and they follow each other in Twitter
   def self.set_full_connected(users)
     users.each do |user|
       user.twitter_friends_ids.each do |twitter_id|
