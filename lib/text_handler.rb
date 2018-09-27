@@ -11,7 +11,7 @@ class TextHandler
       names_array = @text.split(" ")
       return names_array.uniq
     else
-      raise "La cadena no coincide con palabras separadas por espacios"
+      raise "The input does not match words separated by spaces"
     end
   end
 end

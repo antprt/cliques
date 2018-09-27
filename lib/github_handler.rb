@@ -11,7 +11,7 @@ class GithubHandler
     begin
       return @@client.user(username).id
     rescue
-      raise "No se puede obtener id de nombre de usuario: #{username}"
+      raise "Unable to get name id in user GitHub: #{username}"
     end
   end
 
@@ -26,7 +26,7 @@ class GithubHandler
       end
       return organizations
     rescue
-      raise "No se pueden obtener organizaciones del usuario: #{username}"
+      raise "Unable to get user's organizations in GitHub: #{username}"
     end
   end
 end

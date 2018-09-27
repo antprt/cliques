@@ -22,7 +22,7 @@ class FileHandlerOutput
       f.close
       return true
     rescue
-      raise "Se produjo un error mientras se intentaba escribir el fichero"
+      raise "An error occurred while trying to write the file"
     end
   end
 
