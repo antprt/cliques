@@ -3,14 +3,20 @@ require 'test/unit'
 
 class FileHandlerInputTest < Test::Unit::TestCase
   def test_file_not_exists
+    delete_file_in
+    delete_dir_in
     assert_raise RuntimeError do FileHandlerInput.new end
   end
 
   def test_read_file_fails
+    delete_file_in
+    delete_dir_in
     assert_raise RuntimeError do FileHandlerInput.new end
   end
 
   def test_read_file_success_when_has_content
+    delete_file_in
+    delete_dir_in
     create_dir_in
     create_file_in_with_content
     content = FileHandlerInput.new.read_file
@@ -30,26 +36,26 @@ class FileHandlerInputTest < Test::Unit::TestCase
 
   private
   def create_dir_in
-    Dir.mkdir('in') unless Dir.exist?('in')
+    Dir.mkdir('../in') unless Dir.exist?('../in')
   end
 
   def create_file_in_with_content
-    unless File.exists?("in.txt")
-      File.write('./in/in.txt', 'this is a test')
+    unless File.exists?("../in/in.txt")
+      File.write('../in/in.txt', 'this is a test')
     end
   end
 
   def create_file_in_without_content
-    unless File.exists?("in.txt")
-      File.write('./in/in.txt', '')
+    unless File.exists?("../in/in.txt")
+      File.write('../in/in.txt', '')
     end
   end
 
   def delete_dir_in
-    Dir.delete('in')
+    Dir.delete('../in') if Dir.exists?('../in')
   end
 
   def delete_file_in
-    File.delete('./in/in.txt')
+    File.delete('../in/in.txt') if File.exists?('../in/in.txt')
   end
 end

@@ -3,7 +3,7 @@ class FileHandlerInput
 
   def initialize
     unless File.exists?(INPUT_ROUTE)
-      raise "No existe el fichero esperado en la carpeta de entrada"
+      raise "The file expected not exists in the input folder"
     end
   end
 
@@ -17,7 +17,7 @@ class FileHandlerInput
       end
       return file_content
     rescue
-      raise "Se produjo un error mientras se intentaba leer el fichero"
+      raise "An error occurred while trying to read the file"
     end
   end
 end
