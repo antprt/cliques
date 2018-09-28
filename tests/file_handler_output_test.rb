@@ -3,9 +3,12 @@ require_relative File.expand_path("../lib/user.rb")
 require 'test/unit'
 
 class FileHandlerOutputTest < Test::Unit::TestCase
+  FILE_DIR = File.expand_path('../out/', File.dirname(__FILE__))
+  FILE_NAME = File.expand_path(FILE_DIR + '/out.txt', File.dirname(__FILE__))
+
   def test_file_initialize
     FileHandlerOutput.new
-    assert_true File.exists?('../out/out.txt')
+    assert_true File.exists?(FILE_NAME)
     delete_file_out
     delete_dir_out
   end
@@ -21,7 +24,7 @@ class FileHandlerOutputTest < Test::Unit::TestCase
     file_handler_output = FileHandlerOutput.new
     file_handler_output.write_file([[User.new("antonio"), User.new("sergio")], [User.new("rubén")]])
     content = ""
-      File.open('../out/out.txt', 'r') do |file|
+      File.open(FILE_NAME, 'r') do |file|
         while line = file.gets
           content += line
         end
@@ -31,10 +34,10 @@ class FileHandlerOutputTest < Test::Unit::TestCase
 
   private
   def delete_dir_out
-    Dir.delete('../out') if Dir.exists?('../out')
+    Dir.delete(FILE_DIR) if Dir.exists?(FILE_DIR)
   end
 
   def delete_file_out
-    File.delete('../out/out.txt') if File.exists?('../out/out.txt')
+    File.delete(FILE_NAME) if File.exists?(FILE_NAME)
   end
 end

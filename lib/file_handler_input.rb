@@ -1,8 +1,9 @@
 class FileHandlerInput
-  INPUT_ROUTE = '../in/in.txt'
+  INPUT_FILE_NAME = 'in.txt'
+  INPUT_FILE_DIR = '../in/'
 
   def initialize
-    unless File.exists?(INPUT_ROUTE)
+    unless File.exists?(File.expand_path(INPUT_FILE_DIR + INPUT_FILE_NAME,File.dirname(__FILE__)))
       raise "The file expected not exists in the input folder"
     end
   end
@@ -10,7 +11,7 @@ class FileHandlerInput
   def read_file
     begin
       file_content = ""
-      File.open(INPUT_ROUTE, 'r') do |file|
+      File.open(File.expand_path(INPUT_FILE_DIR + INPUT_FILE_NAME,File.dirname(__FILE__)), 'r') do |file|
         while line = file.gets
           file_content += line
         end
