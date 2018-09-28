@@ -31,5 +31,5 @@ The program waits a folder called 'in' with a file called 'in.txt' in the same f
 
 Execute from console: 
 ```sh
-$ ruby main.rb
+$ ruby /lib/main.rb
 ```
